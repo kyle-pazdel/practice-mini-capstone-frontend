@@ -2,18 +2,19 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 import { Header } from "./Header";
+import { Footer } from "./Footer";
+import { Home } from "./Home";
 
-function ProductsNew() {}
+function ProductsShow(props) {
+  // product = products.findBy((id, number) =>{
+  //   return this.filter((product) => return product[id] == number).first();
+  // });
 
-function ProductsIndex() {}
+  // console.log(product());
 
-function Footer() {}
-
-function Home() {
   return (
     <div>
-      <ProductsNew />
-      <ProductsIndex />
+      <h1>{}</h1>
     </div>
   );
 }
