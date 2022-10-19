@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
+import { ProductsShow } from "./ProductsShow";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -32,11 +33,7 @@ export function Home() {
       <ProductsNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
-        <h2>{currentProduct.name}</h2>
-        <img src={currentProduct.images[1]} alt={currentProduct.description} />
-        <p>{currentProduct.description}</p>
-        <p>Price: {currentProduct.price}</p>
-        <p>Available: {currentProduct.inventory}</p>
+        <ProductsShow product={currentProduct} />
       </Modal>
     </div>
   );
