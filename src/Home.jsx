@@ -29,7 +29,7 @@ export function Home() {
   useEffect(handleIndexProducts, []);
 
   return (
-    <div>
+    <div className="container">
       <ProductsNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>

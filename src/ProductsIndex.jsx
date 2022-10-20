@@ -1,13 +1,13 @@
 export function ProductsIndex(props) {
   return (
-    <div id="products-index">
+    <div id="products-index" className="row">
       <h1>All Products</h1>
       {props.products.map((product) => (
-        <div className="products card" key={product.id} style={{ width: "18rem" }}>
+        <div className="products card bg-secondary" key={product.id} style={{ width: "18rem" }}>
           <img src={product.images[0]?.url} className="card-img-top" alt={product.description} />
-          <div className="card-body">
-            <h2 className="card-title">{product.title}</h2>
-            <p className="card-text">Description: {product.description}</p>
+          <div className="card-body bg-custom-1">
+            <h2 className="card-title bg-custom-1">{product.title}</h2>
+            <p className="card-text bg-custom-1">Description: {product.description}</p>
             <p>Price: {product.price}</p>
             <p>Available: {product.inventory}</p>
             <button className="btn btn-primary" onClick={() => props.onSelectProduct(product)}>

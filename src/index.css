@@ -5,3 +5,18 @@
 html {
   scroll-behavior: smooth;
 }
+
+#root {
+  font-family: Century Gothic,CenturyGothic,AppleGothic,sans-serif; 
+  background-image: url('assets/img/background-image.jpg');
+  color: white;
+}
+
+.bg-custom-1 {
+  color: black;
+  background-color: #c5baa7;
+}
+
+.bg-secondary {
+  background-color: #695443;
+}
