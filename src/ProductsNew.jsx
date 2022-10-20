@@ -2,29 +2,37 @@ export function ProductsNew() {
   return (
     <div>
       <h1>New Product</h1>
-      <form>
-        <div>
-          <label for="name">Name</label>
-          <input type="text" id="title" name="title"></input>
+      <form className="row g-3">
+        <div className="col-md-6">
+          <label for="name" className="form-label">
+            Name
+          </label>
+          <input type="text" id="title" name="title" className="form-control"></input>
         </div>
-        <div>
-          <label for="image">Product Image</label>
-          <input type="text" id="image" name="image"></input>
+        <div className="col-md-6">
+          <label for="image" className="form-label">
+            Product Image
+          </label>
+          <input type="text" id="image" name="image" className="form-control"></input>
         </div>
-        <div>
-          <label for="price">Price</label>
-          <input type="number" id="price" name="price"></input>
+        <div className="col-md-12">
+          <label for="price" className="form-label">
+            Price
+          </label>
+          <input type="number" id="price" name="price" className="form-control"></input>
         </div>
-        <div>
-          <label for="description">Description</label>
-          <input type="text" id="description" name="description"></input>
+        <div className="col-md-12">
+          <label for="description" className="form-label">
+            Description
+          </label>
+          <input type="text" id="description" name="description" className="form-control"></input>
         </div>
-        <div>
+        <div className="col-md-6">
           <label for="inventory">Inventory</label>
-          <input type="number" id="inventory" name="inventory" min="0"></input>
+          <input type="number" id="inventory" name="inventory" min="0" className="form-control"></input>
         </div>
-        <div>
-          <input type="submit" id="submit" name="submit"></input>
+        <div className="col-12">
+          <input type="submit" id="submit" name="submit" className="btn btn-primary"></input>
         </div>
       </form>
     </div>
