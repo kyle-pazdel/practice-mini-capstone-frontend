@@ -4,6 +4,7 @@ import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
+import { Signup } from "./Signup";
 
 export function Home() {
   const [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ export function Home() {
 
   return (
     <div className="container">
+      <Signup />
       <ProductsNew />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
