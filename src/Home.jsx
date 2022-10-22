@@ -29,6 +29,14 @@ export function Home() {
     setIsPostsShowVisible(false);
   };
 
+  const handleCreateRecipe = (params) => {
+    axios.post("http://localhost:3000/products.json", params).then((response) => {
+      console.log(response.data);
+      const newProduct = response.data;
+      setProducts([...products, newProduct]);
+    });
+  };
+
   useEffect(handleIndexProducts, []);
 
   return (
@@ -36,7 +44,7 @@ export function Home() {
       <Signup />
       <Login />
       <LogoutLink />
-      <ProductsNew />
+      <ProductsNew onCreateRecipe={handleCreateRecipe} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow product={currentProduct} />

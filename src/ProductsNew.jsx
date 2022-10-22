@@ -1,34 +1,15 @@
-import axios from "axios";
-import { useState } from "react";
-
-export function ProductsNew() {
-  const [errors, setErrors] = useState([]);
-
+export function ProductsNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
-    setErrors([]);
     console.log("Product Added");
     const params = new FormData(event.target);
-    axios
-      .post("http://localhost:3000/products.json", params)
-      .then((response) => {
-        console.log(response.data);
-        event.target.reset();
-      })
-      .catch((error) => {
-        console.log(error.response.data.errors);
-        setErrors(error.response.data.errors);
-      });
+    props.onCreateRecipe(params);
+    event.target.reset();
   };
 
   return (
     <div>
       <h1>New Product</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
       <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-6">
           <label for="name" className="form-label">
