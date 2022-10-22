@@ -37,6 +37,23 @@ export function Home() {
     });
   };
 
+  const handleUpdateProduct = (params) => {
+    axios.patch("http://localhost:3000/products/" + currentProduct.id + ".json", params).then((response) => {
+      console.log(response.data);
+      const updatedProduct = response.data;
+      setCurrentProduct(updatedProduct);
+      setProducts(
+        products.map((product) => {
+          if (product.id === updatedProduct.id) {
+            return updatedProduct;
+          } else {
+            return product;
+          }
+        })
+      );
+    });
+  };
+
   useEffect(handleIndexProducts, []);
 
   return (
@@ -47,7 +64,7 @@ export function Home() {
       <ProductsNew onCreateRecipe={handleCreateRecipe} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
-        <ProductsShow product={currentProduct} />
+        <ProductsShow product={currentProduct} onUpdateProduct={handleUpdateProduct} />
       </Modal>
     </div>
   );

@@ -1,13 +1,9 @@
-import axios from "axios";
-
 export function ProductsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    axios.patch("http://localhost:3000/products/" + props.product.id + ".json", params).then((response) => {
-      console.log(response.data);
-      event.target.reset();
-    });
+    props.onUpdateProduct(params);
+    event.target.reset();
   };
 
   return (
