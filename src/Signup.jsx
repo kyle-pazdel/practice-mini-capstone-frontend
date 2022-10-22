@@ -1,8 +1,12 @@
 import axios from "axios";
+import { useState } from "react";
 
 export function Signup() {
+  const [errors, setErrors] = useState([]);
+
   const handleSubmit = (event) => {
     event.preventDefault();
+    setErrors([]);
     console.log("handleSubmit");
     const params = new FormData(event.target);
 
@@ -11,15 +15,22 @@ export function Signup() {
       .then((response) => {
         console.log(response.data);
         event.target.reset();
+        window.location.href = "/";
       })
-      .catch((errors) => {
-        console.log(errors.response.data.errors);
+      .catch((error) => {
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
       });
   };
 
   return (
     <div>
-      <h1>Sign Up</h1>
+      <h1>Signup</h1>
+      <ul>
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
       <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-12">
           <label for="name" className="form-label">
