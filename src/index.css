@@ -2,6 +2,10 @@
   width: 300px;
 }
 
+#products-show img {
+  width: 10%;
+}
+
 html {
   scroll-behavior: smooth;
 }

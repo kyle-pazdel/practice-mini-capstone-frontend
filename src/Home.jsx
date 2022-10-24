@@ -54,6 +54,13 @@ export function Home() {
     });
   };
 
+  const handleDestroyProduct = (product) => {
+    axios.delete("http://localhost:3000/products/" + product.id + ".josn").then((response) => {
+      setProducts(products.filter((p) => p.id !== product.id));
+      handleHideProduct();
+    });
+  };
+
   useEffect(handleIndexProducts, []);
 
   return (
@@ -64,7 +71,11 @@ export function Home() {
       <ProductsNew onCreateRecipe={handleCreateRecipe} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
-        <ProductsShow product={currentProduct} onUpdateProduct={handleUpdateProduct} />
+        <ProductsShow
+          product={currentProduct}
+          onUpdateProduct={handleUpdateProduct}
+          onDestroyProduct={handleDestroyProduct}
+        />
       </Modal>
     </div>
   );

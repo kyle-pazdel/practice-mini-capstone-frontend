@@ -6,10 +6,21 @@ export function ProductsShow(props) {
     event.target.reset();
   };
 
+  const handleClick = () => {
+    props.onDestroyProduct(props.product);
+  };
+
   return (
     <div id="products-show">
+      <div>
+        {console.log(props.product.images)}
+        {props.product.images.map((image) => (
+          <div key={image.id}>
+            <img src={image.url} alt={props.product.description} />
+          </div>
+        ))}
+      </div>
       <h2>{props.product.name}</h2>
-      <img src={props.product.images[0]?.url} alt={props.product.description} />
       <p>{props.product.description}</p>
       <p>Price: {props.product.price}</p>
       <p>Available: {props.product.inventory}</p>
@@ -26,13 +37,7 @@ export function ProductsShow(props) {
           <label for="image" className="form-label">
             Product Image
           </label>
-          <input
-            type="text"
-            id="image"
-            name="image"
-            defaultValue={props.product.image}
-            className="form-control"
-          ></input>
+          <input type="text" id="image" name="image" className="form-control"></input>
         </div>
         <div className="col-md-12">
           <label for="price" className="form-label">
@@ -75,6 +80,11 @@ export function ProductsShow(props) {
           </button>
         </div>
       </form>
+      <div className="pt-3">
+        <button className="btn btn-sm btn-outline-primary" onClick={handleClick}>
+          Delete Product
+        </button>
+      </div>
     </div>
   );
 }
