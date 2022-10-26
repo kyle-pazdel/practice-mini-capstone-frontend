@@ -4,6 +4,7 @@ import { useState } from "react";
 export function Signup() {
   const [errors, setErrors] = useState([]);
   const [name, setName] = useState("");
+  const [status, setStatus] = useState(null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -21,6 +22,7 @@ export function Signup() {
       .catch((error) => {
         console.log(error.response.data.errors);
         setErrors(error.response.data.errors);
+        setStatus(error.response.status);
       });
   };
 
@@ -32,6 +34,7 @@ export function Signup() {
           <li key={error}>{error}</li>
         ))}
       </ul>
+      {status ? <img src={`https://http.cat/${status}}`} /> : null}
       <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-12">
           <label for="name" className="form-label">
