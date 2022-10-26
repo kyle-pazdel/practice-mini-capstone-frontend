@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ProductsNew } from "./ProductsNew";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
@@ -27,14 +26,6 @@ export function Home() {
 
   const handleHideProduct = () => {
     setIsPostsShowVisible(false);
-  };
-
-  const handleCreateRecipe = (params) => {
-    axios.post("http://localhost:3000/products.json", params).then((response) => {
-      console.log(response.data);
-      const newProduct = response.data;
-      setProducts([...products, newProduct]);
-    });
   };
 
   const handleUpdateProduct = (params) => {
@@ -76,7 +67,6 @@ export function Home() {
           onDestroyProduct={handleDestroyProduct}
         />
       </Modal>
-      <ProductsNew onCreateRecipe={handleCreateRecipe} />
     </div>
   );
 }
