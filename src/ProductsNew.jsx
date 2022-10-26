@@ -8,7 +8,7 @@ export function ProductsNew(props) {
   };
 
   return (
-    <div>
+    <div id="products-new">
       <h1>New Product</h1>
       <form className="row g-3" onSubmit={handleSubmit}>
         <div className="col-md-6">

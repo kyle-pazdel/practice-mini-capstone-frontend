@@ -68,7 +68,6 @@ export function Home() {
       <Signup />
       <Login />
       <LogoutLink />
-      <ProductsNew onCreateRecipe={handleCreateRecipe} />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow
@@ -77,6 +76,7 @@ export function Home() {
           onDestroyProduct={handleDestroyProduct}
         />
       </Modal>
+      <ProductsNew onCreateRecipe={handleCreateRecipe} />
     </div>
   );
 }
