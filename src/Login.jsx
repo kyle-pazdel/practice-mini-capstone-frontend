@@ -29,7 +29,7 @@ export function Login() {
   };
 
   return (
-    <div>
+    <div id="login-form">
       <h1>Login</h1>
       <form className="row g-3" onSubmit={handleLogin}>
         <div className="col-md-12">

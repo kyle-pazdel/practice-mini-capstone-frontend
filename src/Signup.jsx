@@ -27,7 +27,7 @@ export function Signup() {
   };
 
   return (
-    <div>
+    <div id="signup-form">
       <h1>Signup</h1>
       <ul>
         {errors.map((error) => (
