@@ -55,9 +55,6 @@ export function Home() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
-      <LogoutLink />
       <ProductsIndex products={products} onSelectProduct={handleShowProduct} />
       <Modal show={isProductsShowVisible} onClose={handleHideProduct}>
         <ProductsShow
