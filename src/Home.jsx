@@ -3,9 +3,6 @@ import { useState, useEffect } from "react";
 import { ProductsIndex } from "./ProductsIndex";
 import { Modal } from "./Modal";
 import { ProductsShow } from "./ProductsShow";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
-import { LogoutLink } from "./LogoutLink";
 
 export function Home() {
   const [products, setProducts] = useState([]);
